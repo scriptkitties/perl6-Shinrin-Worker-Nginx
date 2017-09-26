@@ -1,0 +1,30 @@
+{
+    "perl": "6",
+    "name": "Shinrin::Worker::Nginx",
+    "version": "0.0.1",
+    "auth": "github:scriptkitties",
+    "description": "Ngnix log parser for Shinrin",
+    "license": "GPL-3.0",
+    "depends": [
+        "WWW",
+        "Config",
+        "JSON::Fast"
+    ],
+    "provides": {
+        "shinrin-nginx": "bin/shinrin-nginx.pl6",
+        "Shinrin::Defaults": "lib/Shinrin/Worker/Nginx.pm6",
+        "Shinrin::Worker::Nginx::AccessLogLine": "lib/Shinrin/Worker/Nginx/AccessLogLine.pm6",
+        "Shinrin::Worker::Nginx::Request": "lib/Shinrin/Worker/Nginx/Request.pm6"
+    },
+    "authors": [
+        "Patrick Spek <p.spek@tyil.work>"
+    ],
+    "tags": [
+        "log",
+        "logging"
+    ],
+    "test-depends": [
+        "Test::META"
+    ],
+    "source-url": "https://github.com/scriptkitties/perl6-shinrin-worker-nginx.git"
+}

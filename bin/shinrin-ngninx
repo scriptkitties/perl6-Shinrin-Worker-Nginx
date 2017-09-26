@@ -1,0 +1,38 @@
+#! /usr/bin/env perl6
+
+use v6.c;
+
+use Config;
+use Shinrin::Worker::Nginx;
+
+sub MAIN
+{
+	my Int $line-number = 0;
+	my Config $config .= new;
+
+	$config.read: {
+		protocol => "http",
+		host => "127.1",
+		port => 3000
+	};
+
+	for lines() {
+		$line-number++;
+
+		try {
+			CATCH {
+				default {
+					"{.Str} on :$line-number".say;
+
+					next;
+				}
+			}
+
+			$_
+				==> parse-line()
+				==> send-to-server(:$config)
+				==> say()
+			;
+		}
+	}
+}
